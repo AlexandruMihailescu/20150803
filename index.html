@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body>
-        Loaded.
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Proiect zi</title>
+  </head>
+  <body>
+    <script src="Script.js"></script>
+    <select id="input-month">
+      <option value=0>Ianuarie</option>
+      <option value=1>Februarie</option>
+      <option value=2>Martie</option>
+      <option value=3>Aprilie</option>
+      <option value=4>Mai</option>
+      <option value=5>Iunie</option>
+      <option value=6>Iulie</option>
+      <option value=7 selected>August</option>
+      <option value=8>Septembrie</option>
+      <option value=9>Octombrie</option>
+      <option value=10>Noiembrie</option>
+      <option value=11>Decembrie</option>
+    </select>
+    <input id="input-year" type=text value="2015"></input>
+    <input id="buton" type=submit value=Calculează></input>
+    <div id="text">Prima duminica va fi:</div>
+    <div id="camp-data"></div>
+    <script>
+      document.getElementById("buton").onclick=function()
+      {
+        var monthSelector=document.getElementById("input-month");
+        var month=monthSelector.options[monthSelector.selectedIndex].value;
+        var year=document.getElementById("input-year").value;
+        document.getElementById('camp-data').innerHTML=getDateString(nextSunday(month, year));
+      }
+    </script>
+  </body>
 </html>
